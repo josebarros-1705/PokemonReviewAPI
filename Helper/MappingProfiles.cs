@@ -9,7 +9,7 @@ namespace PokemonReviewApp.Helper
         public MappingProfiles()
         {
             CreateMap<Pokemon, PokemonDto>(); //Get Methods
-            CreateMap<PokemonDto, Pokemon>(); // Create Methods
+            CreateMap<PokemonDto, Pokemon>(); // Create and update Methods
             CreateMap<Category, CategoryDto>();
             CreateMap<CategoryDto, Category>();
             CreateMap<Country, CountryDto>(); 

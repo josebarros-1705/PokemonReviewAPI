@@ -3,6 +3,7 @@ using PokemonReviewApp.Data;
 using PokemonReviewApp.Interfaces;
 using PokemonReviewApp.Models;
 using System.Data.Entity;
+using System.Text.RegularExpressions;
 
 namespace PokemonReviewApp.Repository
 {
@@ -20,6 +21,12 @@ namespace PokemonReviewApp.Repository
         public bool CreateReviewer(Reviewer reviewer)
         {
             _context.Add(reviewer);
+            return Save();
+        }
+
+        public bool DeleteReviewer(Reviewer reviewer)
+        {
+            _context.Remove(reviewer);
             return Save();
         }
 
@@ -47,6 +54,12 @@ namespace PokemonReviewApp.Repository
         {
             var saved = _context.SaveChanges();
             return saved > 0 ? true : false;
+        }
+
+        public bool UpdateReviewer(Reviewer reviewer)
+        {
+            _context.Update(reviewer);
+            return Save();
         }
     }
 }
